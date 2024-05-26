@@ -1,0 +1,32 @@
+{
+ "collection_info": {
+  "namespace": "alpaslan",
+  "name": "net",
+  "version": "1.0.0",
+  "authors": [
+   "Alpaslan Kaplan <alp@perception.com.tr>"
+  ],
+  "readme": "README.md",
+  "tags": [],
+  "description": "your collection description",
+  "license": [
+   "GPL-2.0-or-later"
+  ],
+  "license_file": null,
+  "dependencies": {
+   "ansible.netcommon": ">=1.0.0"
+  },
+  "repository": "http://example.com/repository",
+  "documentation": "http://docs.example.com",
+  "homepage": "http://example.com",
+  "issues": "http://example.com/issue/tracker"
+ },
+ "file_manifest_file": {
+  "name": "FILES.json",
+  "ftype": "file",
+  "chksum_type": "sha256",
+  "chksum_sha256": "364d4c02ba07bfaaff681d872436a78ac77c1b3fff77547f4bc381373ff16fff",
+  "format": 1
+ },
+ "format": 1
+}
