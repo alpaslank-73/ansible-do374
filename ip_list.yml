@@ -11,8 +11,7 @@
 
     - name: Print list of IP addresses
       debug:
-        msg: "{{ my_ip_addresses[0:-1]}}"
-        #msg: "{{ my_ip_addresses[1:-1]}}"
+        msg: "{{ my_ip_addresses[1:-1]}}"
 
 ...
 
