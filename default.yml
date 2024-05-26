@@ -1,0 +1,6 @@
+- hosts: localhost
+  #  vars:
+  #    var1: selam
+  tasks:
+  - debug:
+      msg: "{{ var1 | default(omit) }}"

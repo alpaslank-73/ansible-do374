@@ -1,0 +1,38 @@
+- hosts: localhost
+  vars:
+    users:
+      - name: paul
+        password: paul_pass
+        authorized:
+          - keys/paul_key1.pub
+          - keys/paul_key2.pub
+        mysql:
+          hosts:
+            - "%"
+            - "127.0.0.1"
+            - "::1"
+            - "localhost"
+        groups:
+          - wheel
+    
+      - name: john
+        password: john_pass
+        authorized:
+          - keys/john_key.pub
+        mysql:
+          password: other-mysql-password
+          hosts:
+             - "utility"
+        groups:
+          - wheel
+          - devops
+  tasks:
+  - debug: 
+      msg: "{{ item }}"
+    loop: "{{ users | subelements('authorized') }}"
+  - copy: 
+      content: "{{ item | to_nice_yaml }}"
+      dest: /tmp/file_nested.{{ my_idx }}
+    loop: "{{ users | subelements('authorized') }}"
+    loop_control:
+      index_var: my_idx

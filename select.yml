@@ -1,0 +1,15 @@
+- name: Example using selectattr filter
+  hosts: localhost
+  gather_facts: no
+  vars:
+    users:
+      - name: Alice
+        status: active
+      - name: Bob
+        status: inactive
+      - name: Charlie
+        status: active
+  tasks:
+    - name: Select active users
+      debug:
+        msg: "{{ users | selectattr('status', 'eq', 'active') }}"

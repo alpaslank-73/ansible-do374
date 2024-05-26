@@ -1,0 +1,17 @@
+- hosts: servera
+  tasks:
+  - package_facts:
+    register: sonuc1
+
+  - debug:
+      var: sonuc1
+
+  - dnf:
+      name: zsh
+      state: installed
+
+  - package_facts:
+    register: sonuc2
+
+  - debug:
+      var: sonuc2

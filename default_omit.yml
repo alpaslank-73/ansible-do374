@@ -1,0 +1,18 @@
+- name: play1
+  gather_facts: no
+  hosts: localhost
+  vars:
+    var1: false
+    mydefault: naber
+  tasks:
+  - name: debug1 task
+    debug:
+      msg: "{{ var1 | default(mydefault) }}"
+
+  - name: debug2 task
+    debug:
+      msg: "{{ var2 | default('mydefault') }}"
+
+  - name: debug3 task
+    debug:
+      msg: "{{ var3 | default(omit) }}"

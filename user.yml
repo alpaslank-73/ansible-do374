@@ -1,0 +1,30 @@
+- hosts: servera
+  vars:
+    users:
+    - name: alpaslank
+      id: 1
+      desc: Alpaslan Kaplan 
+      mail: alp@perception.com.tr
+  
+    - name: alp
+      id: 2
+      desc: Alpaslan Kaplan 
+      mail: alp@perception.com.tr
+
+  tasks:
+  - name: Set pw first
+    set_fact:
+      sifre: "{{ lookup('password', 'sifreler/' + item.name + ' length=6') }}"
+    loop: "{{ users }}"
+  
+  - name: Userlari yarat
+    user:
+      name: "{{ item.name }}"
+      password: "{{ sifre | password_hash('sha512') }}"
+      uid: "{{ 2000 + item.id }}"
+      generate_ssh_key: true
+      #shell: /bin/rbash
+      #update_password: on_create
+      update_password: always
+    loop: "{{ users }}"
+
