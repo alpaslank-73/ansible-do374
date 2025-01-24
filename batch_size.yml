@@ -1,0 +1,10 @@
+- hosts: all
+  serial: 2
+  #serial:
+  #- 1
+  #- 50%
+  #- 100%
+  gather_facts: no
+  tasks:
+  - debug:
+      msg: "{{ inventory_hostname }} - {{ ansible_play_batch }}"

@@ -1,0 +1,23 @@
+- name: play for creating /mydir
+  hosts: servera, serverb
+  gather_facts: no
+  tasks:
+  - file:
+      path: /mydir
+      state: directory
+
+- name: play2
+  gather_facts: no
+  hosts: all
+  order: sorted
+  #max_fail_percentage: 67%
+  max_fail_percentage: 60%
+  serial:
+  - 1
+  - 50%
+  - 100%
+  tasks:
+  - name: fail edecek task
+    copy:
+      content: "Selam \n"
+      dest: /mydir/file1
