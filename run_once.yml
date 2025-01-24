@@ -1,0 +1,9 @@
+- name: play1
+  hosts: all
+  gather_facts: no
+  #serial: 2
+  tasks:
+  - name: debug
+    debug:
+      msg: "{{ ansible_play_batch }} - {{ ansible_play_hosts }}"
+    run_once: yes
