@@ -1,4 +1,5 @@
----
+# Don't forget to install the following before demo:
+# ansible-galaxy collection install alpaslan-net-1.0.0.tar.gz -p collections/
 - name: IP List Test
   hosts: localhost
   gather_facts: no

@@ -1,3 +1,6 @@
+# Don't forget to install the following before demo:
+# ansible-galaxy collection install ansible.netcommon
+# pip3.9 install netaddr
 - hosts: localhost
   gather_facts: no
   vars:
