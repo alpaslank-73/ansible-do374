@@ -1,0 +1,14 @@
+# Don't forget to run following before demo
+# ansible-galaxy collection install ansible.netcommon
+# pip3.9 install netaddr
+- hosts: localhost
+  tasks:
+  - set_fact:
+      nics: []
+  - set_fact:
+      nics: "{{ nics + [item] }}"
+    loop: "{{ ansible_interfaces | difference(['lo', 'virbr0']) }}"
+
+  - debug:
+      var: ansible_{{ item }}.ipv4.address
+    loop: '{{ nics }}'
