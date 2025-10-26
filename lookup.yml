@@ -10,8 +10,8 @@
   - debug:
       msg: '{{ item.0 }}'
     loop: 
-    - "{{ query('ansible.builtin.lines', 'cat /tmp/hosts1') }}"
-    - "{{ query('ansible.builtin.lines', 'cat /tmp/hosts2') }}"
+    - "{{ query('ansible.builtin.lines', 'cat hosts1') }}"
+    - "{{ query('ansible.builtin.lines', 'cat hosts2') }}"
 
   - copy:
       content: "{{ lookup('ansible.builtin.file', 'file.yml') }}"
