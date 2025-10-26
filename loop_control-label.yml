@@ -1,0 +1,8 @@
+# When looping over complex data structures, the console output of your task can be enormous. To limit the displayed output, use the label directive with loop_control.
+# Uncomment to see difference
+- hosts: all
+  tasks:
+   - shell: echo 'doesnt matter'
+     with_dict: '{{ansible_device_links}}'
+#     loop_control:
+#       label: '{{item.key}}'
