@@ -1,0 +1,28 @@
+# with_item vs loop with flatten
+- hosts: localhost
+  vars: 
+    app_a_tmp_files:
+      - /tmp/app_a.log
+      - /tmp/app_a.pid
+    app_b_tmp_files:
+      - /tmp/app_b.cache
+    app_c_tmp_files:
+      - /tmp/app_c.tmp
+      - /tmp/app_c.lock
+    list_of_lists:
+      - "{{ app_a_tmp_files }}"
+      - "{{ app_b_tmp_files }}"
+      - "{{ app_c_tmp_files }}"
+  tasks:
+  - debug: 
+      var: item
+    with_items:
+    - "{{ app_a_tmp_files }}"
+    - "{{ app_b_tmp_files }}"
+    - "{{ app_c_tmp_files }}"
+
+  - debug:
+      var: item
+    loop: "{{ list_of_lists | flatten(levels=1) }}"
+
+
