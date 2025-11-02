@@ -16,13 +16,10 @@
   tasks:
   - debug: 
       var: item
-    with_items:
-    - "{{ app_a_tmp_files }}"
-    - "{{ app_b_tmp_files }}"
-    - "{{ app_c_tmp_files }}"
+    with_items: "{{ list_of_lists }}"     # 6 kere doner
 
   - debug:
       var: item
-    loop: "{{ list_of_lists | flatten(levels=1) }}"
-
+    #loop: "{{ list_of_lists | flatten(levels=1) }}"  # 6 kere doner
+    loop: "{{ list_of_lists }}"  # 3 kere doner
 
