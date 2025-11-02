@@ -1,5 +1,6 @@
 # with_item vs loop with flatten
 - hosts: localhost
+  gather_facts: false
   vars: 
     app_a_tmp_files:
       - /tmp/app_a.log

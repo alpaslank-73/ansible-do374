@@ -1,4 +1,5 @@
 - hosts: localhost
+  gather_facts: false
   vars:
     paul_pass: redhat
     john_pass: redhat
@@ -41,3 +42,4 @@
     loop: "{{ users | subelements('authorized') }}"
     loop_control:
       index_var: my_idx
+      label: ""

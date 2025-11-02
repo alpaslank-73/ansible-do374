@@ -1,5 +1,6 @@
 # with_item flattens only one level while loop can handle multiple levels with "flatten" filter
 - hosts: localhost
+  gather_facts: false
   vars: 
     nested_list:
     - [[["a1","a2"],["a3"]],[["b1"]]]
