@@ -8,4 +8,5 @@
 
   - debug:
       var: ansible_{{ item }}.ipv4.address
+      #msg: "{{ item }} IP address: {{ vars['ansible_' + item].ipv4.address }}"
     loop: '{{ nics }}'
