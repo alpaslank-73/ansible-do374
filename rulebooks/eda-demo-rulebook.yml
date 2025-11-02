@@ -10,4 +10,5 @@
       action:
         run_playbook:
           name: playbooks/eda-ping.yml
+          inventory: inventory
 
