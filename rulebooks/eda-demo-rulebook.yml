@@ -9,5 +9,5 @@
       condition: event.payload.msg == "ping"
       action:
         run_playbook:
-          name: eda-ping.yml
+          name: playbooks/eda-ping.yml
 
