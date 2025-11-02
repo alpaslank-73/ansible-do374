@@ -31,3 +31,5 @@
   - debug:
       msg: "{{ item[0]['name'] }} - {{ item[1] }}"
     loop: "{{ users | subelements('authorized') }}"
+    loop_control:
+      label: ""
