@@ -10,6 +10,11 @@
       msg: "Item ==> {{ item }}"
     with_items: "{{ nested_list }}"
 
+  - name: debug task - loop
+    debug: 
+      msg: "Item ==> {{ item }}"
+    loop: "{{ nested_list }}"
+
   - name: debug task1 - loop with level 1 - same with with_items
     debug:
       msg: "{{ loop_index }} - {{ item }}"
