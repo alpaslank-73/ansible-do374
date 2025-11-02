@@ -30,6 +30,14 @@
   tasks:
   - debug:
       msg: "{{ item[0]['name'] }} - {{ item[1] }}"
+      #msg: "{{ item }}"
     loop: "{{ users | subelements('authorized') }}"
     loop_control:
       label: ""
+
+  - copy:
+      content: "{{ item | to_nice_yaml }}"
+      dest: /tmp/file_nested.{{ my_idx }}
+    loop: "{{ users | subelements('authorized') }}"
+    loop_control:
+      index_var: my_idx
