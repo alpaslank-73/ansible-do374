@@ -1,0 +1,6 @@
+- hosts: localhost
+  vars_files:
+  - secret_vars.yml
+  tasks:
+  - debug:
+      var: var1
