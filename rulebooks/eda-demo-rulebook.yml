@@ -8,7 +8,6 @@
     - name: Webhook trigger
       condition: event.payload.msg == "ping"
       action:
-        run_playbook:
-          name: playbooks/eda-ping.yml
-          inventory: inventory
-
+        run_job_template:
+          name: Demo Job Template
+          organization: Default
