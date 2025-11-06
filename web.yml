@@ -1,12 +1,15 @@
 - hosts: all
   gather_facts: false
+  vars:
+    welcome: Hello
+    path: /var/www/html/index.html
   tasks:
   - dnf:
       name: httpd
       state: installed
   - copy:
-      content: "Hello from {{ inventory_hostname }}\n"
-      dest: /var/www/html/index.html
+      content: "{{ welcome }}\n"
+      dest: "{{ path }}"
   - service:
       name: httpd
       state: started
