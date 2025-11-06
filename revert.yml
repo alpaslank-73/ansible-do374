@@ -1,0 +1,17 @@
+- hosts: all
+  gather_facts: false
+  tasks:
+  - dnf:
+      name: httpd
+      state: installed
+  - copy:
+      content: "This site is under construction\n"
+      dest: /var/www/html/index.html
+  - service:
+      name: httpd
+      state: started
+  - firewalld:
+      service: http
+      permanent: yes
+      immediate: yes
+      state: enabled
