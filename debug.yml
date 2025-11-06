@@ -1,0 +1,6 @@
+- hosts: all
+  vars:
+    welcome: selam
+  tasks:
+  - debug:
+      var: welcome
